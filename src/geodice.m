@@ -1,5 +1,5 @@
-function map = geodice(A,a,b,c);
-% GEODICE : Geometric multiway partition.
+function map = geodice(A,xy,nlevels,ntries)
+% GEODICE Geometric multiway partition.
 %
 % map = geodice(A,xy,nlevels,ntries)
 % A is the adjacency matrix of a graph.
@@ -16,45 +16,14 @@ function map = geodice(A,a,b,c);
 % Copyright (c) 1990-1996 by Xerox Corporation.  All rights reserved.
 % HELP COPYRIGHT for complete copyright and licensing notice.
 
-picture = (nargout == 0);
+if nargin < 4
+    ntries = 30;
+end
 
-% Sort out the ntries.
-ntries = 30;
-if nargin == 4
-    ntries = c;
-elseif nargin == 3
-    if length(a) == 1 & length(b) == 1
-        error('No coordinates given?');
-    end;
-end;
+if nargin < 3
+    nlevels = 4;
+end
 
-% Sort out the coordinates and nlevels.
-if nargin >= 3
-    if length(a) == 1
-        nlevels = a;
-        if length(b) > 1
-            xy = b; 
-        else
-            error('No coordinates given?');
-        end;
-    else
-        nlevels = b; xy = a; 
-    end;
-elseif nargin == 2
-    if length(a) == 1
-        error('No coordinates given?');
-    else
-        nlevels = 4; xy = a; 
-    end;
-else
-        error('No coordinates given?');
-end;
+map = dice('geopart',nlevels,A,xy,ntries);
 
-% Enough with the arguments!
-
-map = dice('geopart',nlevels,A,xy,0,ntries);
-
-if picture
-    gplotmap(A,xy,map);
-    title('Geometric Partition');
-end;
+end
