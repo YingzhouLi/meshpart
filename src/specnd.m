@@ -1,33 +1,27 @@
-function p = specnd(S,minsep);
-% SPECND : Spectral nested dissection ordering.
+function p = specnd(A,minsep)
+% SPECND Spectral nested dissection ordering.
 %
-% p = specnd(S,minsep).  Nested dissection ordering of S.
-% For a symmetric positive definite matrix S, this returns
-% a nested dissection permutation p, so that S(p,p) tends to 
-% have a sparser Cholesky factor than S.  
-%
-% minsep   (optional, default 3) is the smallest subgraph that will
-%          be separated recursively.
-%
-% With no output argument, specnd reports statistics
-% and draws a picture of the elimination tree.
-%
+%   p = SPECND(A,minsep).  Nested dissection ordering of A. For a symmetric
+%   positive definite matrix A, this returns a nested dissection permutation
+%   p, so that A(p,p) tends to have a sparser Cholesky factor than A. minsep
+%   (optional, default 5) is the smallest subgraph that will be separated
+%   recursively.
+%   
 % See also SPECPART, NDPERM, GSND, GEOND.
-%
+
+% Yingzhou Li, 2017
 % John Gilbert, 1993.
 % Copyright (c) 1990-1996 by Xerox Corporation.  All rights reserved.
 % HELP COPYRIGHT for complete copyright and licensing notice.
 %
 % Modified by John Gilbert for Matlab 6, Feb 2002
+% Modified by Yingzhou Li for Matlab 8, Feb 10, 2017
 
-if nargin < 2, minsep = 3; end  % This is the minsep default.
-if minsep < 3, minsep = 3; end  % No point in separating less than 3 vertices.
+if nargin < 2
+    minsep = 5;
+end
+minsep = max(minsep,5);
 
-p = ndperm('specpart',minsep,S);
+p = ndperm('specpart',minsep,A);
 
-if nargout == 0
-    Sp = S(p,p);
-    analyze(Sp);
-    etreeplotg(Sp);
-    title('Spectral Nested Dissection');
-end;
+end
