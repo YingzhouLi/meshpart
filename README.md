@@ -1,12 +1,18 @@
 Mesh Partitioning Toolbox -- meshpart
 ==========================
 
-Demonstrations
+This toolbox contains Matlab code for several graph and mesh partitioning
+methods, including geometric, spectral, geometric spectral, and coordinate
+bisection.  It also has routines to generate recursive multiway partitions, 
+vertex separators, and nested dissection orderings; and it has some sample
+meshes and mesh generators. 
+
+Contents
 --------------------------
+### Demonstrations
   See "test/meshdemo" for some examples.
 
-Partitioning methods
---------------------------
+### Partitioning methods
 
 | Name            | Description           |
 |:--------------- |:--------------------- |
@@ -16,8 +22,7 @@ Partitioning methods
 |  coordpart      | Coordinate bisection. |
 |  inertpart      | Inertial bisection.   |
 
-Multiway partitions
---------------------------
+### Multiway partitions
 
 | Name            | Description                                            |
 |:--------------- |:------------------------------------------------------ |
@@ -26,8 +31,7 @@ Multiway partitions
 |  specdice       | Recursive spectral partitioning.                       |
 |  gsdice         | Recursive geometric spectral partitioning.             |
 
-Vertex separators
---------------------------
+### Vertex separators
 
 | Name            | Description                                      |
 |:--------------- |:------------------------------------------------ |
@@ -35,8 +39,7 @@ Vertex separators
 |  geosep         | Vertex separator from geometric partitioning.    |
 |  specsep        | Vertex separator from spectral partitioning.     |
 
-Nested dissection
---------------------------
+### Nested dissection
 
 | Name            | Description                                      |
 |:--------------- |:------------------------------------------------ |
@@ -45,8 +48,7 @@ Nested dissection
 |  specnd         | Spectral nested dissection ordering.             |
 |  gsnd           | Geometric spectral nested dissection ordering.   |
 
-Meshes and graph generators
---------------------------
+### Meshes and graph generators
 
 | Name            | Description                                      |
 |:--------------- |:------------------------------------------------ |
@@ -65,8 +67,7 @@ Meshes and graph generators
 |  treexpath      | A mesh for which spectral bisection does poorly. |
 |  tree3xpath     | A mesh for which spectral bisection does poorly. |
 
-Visualization and graphics
---------------------------
+### Visualization and graphics
 
 | Name            | Description                                      |
 |:--------------- |:------------------------------------------------ |
@@ -75,8 +76,7 @@ Visualization and graphics
 |  ghighlight     | Draw a mesh with some vertices highlighted.      |
 |  gplotg         | Draw a 2D or 3D mesh (replaces Matlab's gplot).  |
  
-Utilities
---------------------------
+### Utilities
 
 | Name            | Description                                              |
 |:--------------- |:-------------------------------------------------------- |
@@ -86,4 +86,43 @@ Utilities
 |  contract       | Condense a graph according to a given block structure.   |
 |  blockdiags     | Create matrix with specified block diagonals.            |
 
-See meshpart.html for references.
+## References
+
+* John R. Gilbert, Gary L. Miller, and Shang-Hua Teng.
+  Geometric mesh partitioning:  Implementation and experiments.
+  SIAM J. Scientific Computing 19:2091-2110, 1998.
+  
+* Tony F. Chan, John R. Gilbert, and Shang-Hua Teng.
+  Geometric spectral partitioning.
+  Xerox PARC Technical Report CSL-94-15, 1995.
+
+* Bruce Hendrickson and Robert Leland.
+  The Chaco user's guide, version 2.0.
+  Sandia National Laboratories Technical Report SAND94-2692, 1994.
+
+* George Karypis et al.
+  METIS, Serial graph partitioning, version 4.0.1, November 1998.
+  http://www.cs.umn.edu/~karypis/metis
+  
+* Robert Bridson.
+  A MATLAB CMEX interface to the Metis library. 
+  http://www.stanford.edu/~rbridson/download/metismex.c
+  
+* Yingzhou Li.
+  MetisMex, A MATLAB Toolbox of interfaces to the Metis library. 
+  https://github.com/YingzhouLi/metismex
+  
+## Authors
+  
+* John R. Gilbert, UC Santa Barbara, http://www.cs.ucsb.edu/~gilbert/
+
+* Shang-Hua Teng, University of Southern California, http://www-bcf.usc.edu/~shanghua/ 
+
+* Yingzhou Li, Stanford University, http://www.stanford.edu/people/yingzhouli
+  
+## Aknowledgement
+ 
+  Thanks to Tim Davis for updating the toolbox to Matlab 5;
+  to George Karypis, Vipin Kumar, and Robert Bridson for Metis 
+  and its interface; and to Bruce Hendrickson and Robert Leland
+  for Chaco in previous versions.
