@@ -7,10 +7,29 @@ bisection.  It also has routines to generate recursive multiway partitions,
 vertex separators, and nested dissection orderings; and it has some sample
 meshes and mesh generators. 
 
+
+Demonstrations
+--------------------------
+
+Tapir Graph |  Spectral Partition
+:----------:|:-------------------------:
+![](./doc/Tapir.png)| ![](./doc/Tapir-specpart.png)
+**Geometric Partition** |  **Geometric Spectral Partition**
+![](./doc/Tapir-geopart.png)| ![](./doc/Tapir-gspart.png)
+
+
+Triangular Mesh |  Recursive Geometric Partition
+:----------:|:-------------------------:
+![](./doc/trigrid.png)| ![](./doc/trigrid-geodice.png)
+
+Nested Dissection Reordering for Choleskey Factorization |
+:----------:|
+![Image of Yaktocat](./doc/Smallmesh.png) |
+
+  See "test/meshdemo" for detailed examples.
+
 Contents
 --------------------------
-### Demonstrations
-  See "test/meshdemo" for some examples.
 
 ### Partitioning methods
 
