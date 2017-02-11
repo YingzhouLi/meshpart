@@ -1,7 +1,7 @@
 function [map,sepij,sepA] = dice(method,levels,A,varargin)
 % DICE Separate a graph recursively.
 %
-%   [map,sepij,sepA] = dice(method,levels,A,arg...) partitions the
+%   [map,sepij,sepA] = DICE(method,levels,A,arg...) partitions the
 %   mesh or graph A recursively by a specified method. 'method' is the name
 %   of the 2-way edge separator function to call. levels is the number of
 %   levels of partitioning. A is the adjacency matrix of the graph. arg2,

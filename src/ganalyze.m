@@ -1,7 +1,7 @@
 function [nonzeros,ops,height,frontsize] = ganalyze(A)
 % GANALYZE Determine complexity of Cholesky factorization.
 %
-%   [nonzeros,ops,height,frontsize] = analyze(A) predicts the complexity of
+%   [nonzeros,ops,height,frontsize] = GANALYZE(A) predicts the complexity of
 %   performing Cholesky factorization on a symmetric, positive definite
 %   matrix with the nonzero structure of A, without actually performing the
 %   factorization. Output: nonzeros is the number of nonzeros in the
@@ -11,7 +11,7 @@ function [nonzeros,ops,height,frontsize] = ganalyze(A)
 %   (or largest clique size) in factorization. If no output arguments are
 %   given, analyze prints its results.
 %
-% See also SYMBFACT, CHOL.
+%   See also SYMBFACT, CHOL.
 
 % Yingzhou Li, 2017
 % John Gilbert, 6 Aug 1994.

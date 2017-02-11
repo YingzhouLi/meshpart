@@ -20,8 +20,6 @@ function [part1,part2,sep1,sep2,uv] = gspart(A,ntries,uv)
 % Modified by Tim Davis, for Matlab 5.1.  July 6, 1998.
 % Modified by Yingzhou Li, for Matlab 8.  Feb 9, 2017
 
-% Figure out what the arguments mean...
-
 if nargin < 3
     [uv,~] = fiedler(A,2);
 elseif length(uv) == 1

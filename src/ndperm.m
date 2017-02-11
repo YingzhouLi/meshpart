@@ -1,7 +1,7 @@
 function p = ndperm(method,minsep,A,varargin)
 % NDPERM Nested dissection ordering for a symmetric matrix.
 %
-%   p = ndperm(method,minsep,A) returns a nested dissection permutation of
+%   p = NDPERM(method,minsep,A) returns a nested dissection permutation of
 %   symmetric positive definite A, such that A(p,p) tends to have a sparser
 %   Cholesky factor than A. Input: 'method' is the name of the 2-way edge
 %   separator function to call. minsep is the size of piece not to partition

@@ -1,13 +1,15 @@
 function [x,lambda] = fiedler(A,k)
-% FIEDLER : Fiedler vector of a graph.
+% FIEDLER Fiedler vector of a graph.
 %
-% x = fiedler(A)  returns the eigenvector corresponding to
-%                 the second-smallest eigenvalue of the laplacian matrix
-%                 of the graph whose adjacency matrix is A|A'.
-%                 (If G is connected this is the smallest positive eval.)
-% [x,lambda] = fiedler(A)  also returns the eigenvalue.
-% [x,lambda] = fiedler(A,k) returns the k smallest nonzero eigenvalues
-%                 and their eigenvectors.
+%   x = FIEDLER(A) returns the eigenvector corresponding to the
+%   second-smallest eigenvalue of the laplacian matrix of the graph whose
+%   adjacency matrix is A|A'. (If G is connected this is the smallest
+%   positive eval.)
+%
+%   [x,lambda] = fiedler(A)  also returns the eigenvalue.
+% 
+%   [x,lambda] = fiedler(A,k) returns the k smallest nonzero eigenvalues and
+%   their eigenvectors.
 %
 %
 % See also LAPLACIAN, SPECPART.

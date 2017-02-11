@@ -1,19 +1,20 @@
-function [A,xyz] = treexpath(dep,len);
-% TREEXPATH : Graph for which spectral partitioning works poorly.
+function [A,xyz] = treexpath(dep,len)
+% TREEXPATH Graph for which spectral partitioning works poorly.
 %
-%   Generate the tree-cross-path mesh from Guattery and Miller, 
-%   "On the performance of spectral graph partitioning methods," SODA 1995.
+%   Generate the tree-cross-path mesh from Guattery and Miller, "On the
+%   performance of spectral graph partitioning methods," SODA 1995.
 %
-% [A,xyz] = treexpath(n)
-%   The generated mesh has about n vertices.
-% [A,xyz] = treexpath(dep,len)
-%   Each tree has depth "dep" and the path has length "len",
-%   so the whole mesh has (2^(dep+2) - 2)*len vertices.
-% Outputs:  A is the Laplacian; xyz is coordinates for a drawing.
-%           If no output arguments, we draw the picture.
+%   [A,xyz] = treexpath(n) The generated mesh has about n vertices. Outputs:
+%   A is the Laplacian; xyz is coordinates.
 %
-% Try [A,xyz] = treexpath(700), and then use various partitioners on the result.
-%
+% 
+%   [A,xyz] = treexpath(dep,len) Each tree has depth "dep" and the path has
+%   length "len", so the whole mesh has (2^(dep+2) - 2)*len vertices.
+% 
+%   Try [A,xyz] = treexpath(700), and then use various partitioners on the
+%   result.
+
+% Yingzhou Li, 2017
 % John Gilbert, 1994.
 % Copyright (c) 1990-1996 by Xerox Corporation.  All rights reserved.
 % HELP COPYRIGHT for complete copyright and licensing notice.
@@ -21,18 +22,14 @@ function [A,xyz] = treexpath(dep,len);
 if nargin <= 1
     n = dep;
     ntree = (n/4)^(2/3);
-    dep = floor(log(ntree+2)/log(2))-2;
-    dep = max(dep,0);
-end;
+    dep = max(floor(log(ntree+2)/log(2))-2,0);
+end
 ntree = 2^(dep+2) - 2;
 if nargin <= 1
     len = round(n/ntree);
-end;
-fprintf('TreeDepth=%d, TreeSize=%d, PathSize=%d, TotalSize=%d\n', ...
-         dep, ntree, len, len*ntree);
+end
 
 % The tree is two complete binary trees joined by a edge.
-
 p = ntree/2 - 1;
 parent = [0:p ; 0:p];
 parent = parent(:);
@@ -56,12 +53,14 @@ for d = 0:dep
     levelsize = 2*levelsize;
     alpha = pi/levelsize;
     radius = radius * (cos(alpha) + sin(alpha)/tan(pi/3-alpha));
-end;
+end
 
 % The whole graph is the cross product of the tree and a path.
-
 A = blockdiags([Tree Tree Tree], -1:1, len, len);
-A = laplacian(A);
+n = size(A,1);
+A(n*(0:n-1)+(1:n)) = 0;
+G = graph(A);
+A = laplacian(G);
 
 index = ones(ntree,1) * (1:len);
 zindex = index(:);
@@ -69,10 +68,4 @@ index = (1:ntree)' * ones(1,len);
 xyindex = index(:);
 xyz = [xy(xyindex,:) zindex];
 
-if nargout == 0
-    if len == 1
-        gplotg(A,xy);
-    else
-        gplotg(A,xyz);
-    end;
-end;
+end

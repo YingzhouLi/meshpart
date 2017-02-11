@@ -1,30 +1,18 @@
-function [sep,a,b] = specsep(A,xy)
-% SPECSEP : Spectral separators for a finite element mesh.
+function [sep,part1,part2] = specsep(A)
+% SPECSEP Spectral separators for a finite element mesh.
 %
-% s = specsep(A) returns a separator based on the Fiedler vector
-% for the graph whose structure is A.
+%   sep = SPECSEP(A) returns a separator based on the Fiedler vector for the
+%   graph whose structure is A.
 %
-% If coords are given as a second argument 'xy', it draws a picture.
-%
-% [s,a,b] = specsep(...) also returns the partition [a,b] of A-s.
-%
+%   [sep,part1,part2] = SPECSEP(...) also returns the partition [part1,
+%   part2] of A-s.
+
+% Yingzhou Li, 2017
 % John Gilbert 11 Jun 93.
 % Copyright (c) 1990-1996 by Xerox Corporation.  All rights reserved.
 % HELP COPYRIGHT for complete copyright and licensing notice.
 
-if nargin < 2
-  xy = 0;
-end;
+[part1,part2] = specpart(A);
+[sep,part1,part2] = vtxsep(A,part1,part2);
 
-picture = (max(size(xy)) >= 2);
-
-[parta,partb] = specpart(A);
-[sep,a,b] = vtxsep(A,parta,partb);
-
-if picture
-    na_nb_nc = [length(a) length(b) length(sep)]
-    highlight(A,xy,sep);
-    axis('off');
-    drawnow;
-end;
-
+end

@@ -1,21 +1,19 @@
 function [part1,part2,sep1,sep2,center,radius] = geopart(A,xy,ntries)
-% GEOPART : Geometric separators for a finite element mesh.
+% GEOPART Geometric separators for a finite element mesh.
 %
-% [part1,part2] = geopart(A,xy) returns the vertex partition from geometric
-% partitioning for the mesh whose structure is A and whose coordinates are
-% xy.
+%   [part1,part2] = GEOPART(A,xy) returns the vertex partition from
+%   geometric partitioning for the mesh whose structure is A and whose
+%   coordinates are xy. The number of dimensions is the number of columns of
+%   xy.
 %
-% The number of dimensions is the number of columns of xy.
+%   [part1,part2,sep1,sep2,center,radius] = GEOPART(...) also returns: sep1,
+%   sep2 are the vectors of endpoints of the separating edges. center,
+%   radius describe the separating circle in the mesh space. (If the
+%   separating circle is actually a line/plane, then radius=Inf and the
+%   line's equation is center(1:d) * t = center(d+1). )
 %
-% [part1,part2,sep1,sep2,center,radius] = geopart(...) also returns:
-%        sep1, sep2 are the vectors of endpoints of the separating edges.
-%        center, radius describe the separating circle in the mesh space.
-%        (If the separating circle is actually a line/plane, then radius=Inf
-%        and the line's equation is center(1:d) * t = center(d+1). )
-%
-% There are two optional arguments:
-% geopart(A,xy,ntries)
-%    ntries (default 30) : Number of separating great circles to try.
+%   There are two optional arguments: geopart(A,xy,ntries) ntries (default
+%   30): Number of separating great circles to try.
 %
 % See also GEOSEP, GEODICE, GEOND.
 
