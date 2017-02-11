@@ -31,7 +31,7 @@ n = size(A,1);
 p = zeros(1,n);
 
 % Find the connected components of A
-G = graph(A);
+G = graph(A,'OmitSelfLoops');
 comps = conncomp(G);
 
 % For each connected component,

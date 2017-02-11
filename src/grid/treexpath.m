@@ -57,9 +57,7 @@ end
 
 % The whole graph is the cross product of the tree and a path.
 A = blockdiags([Tree Tree Tree], -1:1, len, len);
-n = size(A,1);
-A(n*(0:n-1)+(1:n)) = 0;
-G = graph(A);
+G = graph(A,'OmitSelfLoops');
 A = laplacian(G);
 
 index = ones(ntree,1) * (1:len);

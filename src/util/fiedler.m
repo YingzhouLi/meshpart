@@ -23,11 +23,7 @@ if nargin < 2
     k = 1;
 end
 
-% Remove self loops in A
-n = size(A,1);
-A(n*(0:n-1)+(1:n)) = 0;
-
-G = graph(A);
+G = graph(A,'OmitSelfLoops');
 
 % Add edges to connect the graph
 comp = conncomp(G);
