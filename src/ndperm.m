@@ -47,7 +47,7 @@ for itcomp = unique(comps)
         
         vararginsub = varargin;
         if nargcall >= 2
-            if size(vararginsub{1},1) == n
+            if size(varargin{1},1) == n
                 vararginsub{1} = vararginsub{1}(comp,:);
             end
         end
@@ -60,7 +60,7 @@ for itcomp = unique(comps)
         Asubp1 = Asub(part1,part1);
         vararginsubp1 = vararginsub;
         if nargcall >= 2
-            if size(vararginsub{1},1) == n
+            if size(varargin{1},1) == n
                 vararginsubp1{1} = vararginsub{1}(part1,:);
             end
         end
@@ -69,7 +69,7 @@ for itcomp = unique(comps)
         Asubp2 = Asub(part2,part2);
         vararginsubp2 = vararginsub;
         if nargcall >= 2
-            if size(vararginsub{1},1) == n
+            if size(varargin{1},1) == n
                 vararginsubp2{1} = vararginsub{1}(part2,:);
             end
         end
