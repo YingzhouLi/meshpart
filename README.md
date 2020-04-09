@@ -1,6 +1,8 @@
 Mesh Partitioning Toolbox -- meshpart
 ==========================
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3746723.svg)](https://doi.org/10.5281/zenodo.3746723)
+
 This toolbox contains Matlab code for several graph and mesh partitioning
 methods, including geometric, spectral, geometric spectral, and coordinate
 bisection.  It also has routines to generate recursive multiway partitions, 
