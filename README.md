@@ -130,8 +130,25 @@ Contents
   http://www.stanford.edu/~rbridson/download/metismex.c
   
 * Yingzhou Li.
-  MetisMex, A MATLAB Toolbox of interfaces to the Metis library. 
-  https://github.com/YingzhouLi/metismex
+  MetisMex, A MATLAB Toolbox of interfaces to the Metis library, Zenodo.
+  http://doi.org/10.5281/zenodo.3746723
+  
+  
+## BibTeX Export
+```
+@software{gilbert_john_r_2020_3746723,
+  author       = {Gilbert, John R. and
+                  Li, Yingzhou and
+                  Teng, Shang-Hua},
+  title        = {Mesh Partitioning Toolbox -- meshpart},
+  month        = apr,
+  year         = 2020,
+  publisher    = {Zenodo},
+  version      = {v1.1},
+  doi          = {10.5281/zenodo.3746723},
+  url          = {https://doi.org/10.5281/zenodo.3746723}
+}
+```
   
 ## Authors
   
