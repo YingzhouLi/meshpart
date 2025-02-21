@@ -156,7 +156,7 @@ Contents
 
 * Shang-Hua Teng, University of Southern California, http://www-bcf.usc.edu/~shanghua/ 
 
-* Yingzhou Li, Duke University, http://yingzhouli.com
+* Yingzhou Li, Fudan University, https://yingzhouli.com
   
 ## Aknowledgement
  
